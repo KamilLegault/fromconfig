@@ -117,7 +117,7 @@ def yaml_load(stream, Loader):  # pylint: disable=invalid-name
         """
         if is_mapping(item):
             result = {}  # type: Dict[Any, Any]
-            for key, value in sorted(item.items(), key=itemgetter(0)):
+            for key, value in item.items():
                 if key.endswith(f"{_YAML_INCLUDE}<<"):
                     if not is_mapping(value):
                         raise TypeError(f"Expected Mapping-like object but got {value} ({type(value)}")
